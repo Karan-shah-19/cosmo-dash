@@ -43,6 +43,16 @@ export default {
           foreground: "hsl(var(--warning-foreground))",
           light: "hsl(var(--warning-light))",
         },
+        info: {
+          DEFAULT: "hsl(var(--info))",
+          foreground: "hsl(var(--info-foreground))",
+          light: "hsl(var(--info-light))",
+        },
+        purple: {
+          DEFAULT: "hsl(var(--purple))",
+          foreground: "hsl(var(--purple-foreground))",
+          light: "hsl(var(--purple-light))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -76,9 +86,14 @@ export default {
       },
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',
+        'gradient-secondary': 'var(--gradient-secondary)',
+        'gradient-success': 'var(--gradient-success)',
         'gradient-background': 'var(--gradient-background)',
         'gradient-card': 'var(--gradient-card)',
         'gradient-hero': 'var(--gradient-hero)',
+        'gradient-dashboard': 'var(--gradient-dashboard)',
+        'gradient-retailer': 'var(--gradient-retailer)',
+        'gradient-stats': 'var(--gradient-stats)',
       },
       boxShadow: {
         'glow': 'var(--shadow-glow)',

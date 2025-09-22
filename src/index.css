@@ -7,36 +7,46 @@
 
 @layer base {
   :root {
-    /* Core Colors - Rich blue-purple theme */
-    --background: 240 10% 98%;
-    --foreground: 240 10% 9%;
+    /* Core Colors - Vibrant modern theme */
+    --background: 220 15% 98%;
+    --foreground: 220 15% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 9%;
+    --card-foreground: 220 15% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 9%;
+    --popover-foreground: 220 15% 12%;
 
-    /* Primary - Deep professional blue */
-    --primary: 243 75% 59%;
+    /* Primary - Vibrant electric blue */
+    --primary: 213 94% 68%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 243 75% 54%;
-    --primary-light: 243 75% 94%;
+    --primary-hover: 213 94% 60%;
+    --primary-light: 213 94% 95%;
 
-    /* Secondary - Soft purple accent */
-    --secondary: 252 56% 57%;
+    /* Secondary - Rich coral */
+    --secondary: 14 86% 65%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-light: 252 56% 95%;
+    --secondary-light: 14 86% 96%;
 
-    /* Success - Fresh green */
-    --success: 142 71% 45%;
+    /* Success - Vibrant emerald */
+    --success: 151 83% 54%;
     --success-foreground: 0 0% 100%;
-    --success-light: 142 71% 95%;
+    --success-light: 151 83% 95%;
 
-    /* Warning - Warm orange */
-    --warning: 35 91% 62%;
-    --warning-foreground: 0 0% 100%;
-    --warning-light: 35 91% 95%;
+    /* Warning - Golden yellow */
+    --warning: 45 93% 65%;
+    --warning-foreground: 220 15% 12%;
+    --warning-light: 45 93% 95%;
+
+    /* Info - Bright cyan */
+    --info: 189 94% 62%;
+    --info-foreground: 0 0% 100%;
+    --info-light: 189 94% 95%;
+
+    /* Purple accent */
+    --purple: 269 79% 66%;
+    --purple-foreground: 0 0% 100%;
+    --purple-light: 269 79% 96%;
 
     /* Muted colors */
     --muted: 240 4.8% 95.9%;
@@ -55,10 +65,15 @@
     --radius: 0.75rem;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(243 75% 59%), hsl(252 56% 57%));
-    --gradient-background: linear-gradient(135deg, hsl(240 10% 98%), hsl(240 5% 96%));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(240 10% 99%));
-    --gradient-hero: linear-gradient(135deg, hsl(243 75% 59%) 0%, hsl(252 56% 57%) 50%, hsl(273 83% 63%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(213 94% 68%), hsl(269 79% 66%));
+    --gradient-secondary: linear-gradient(135deg, hsl(14 86% 65%), hsl(45 93% 65%));
+    --gradient-success: linear-gradient(135deg, hsl(151 83% 54%), hsl(189 94% 62%));
+    --gradient-background: linear-gradient(135deg, hsl(220 15% 98%), hsl(213 25% 95%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 15% 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(213 94% 68%) 0%, hsl(269 79% 66%) 50%, hsl(14 86% 65%) 100%);
+    --gradient-dashboard: linear-gradient(135deg, hsl(213 94% 68% / 0.1), hsl(269 79% 66% / 0.1));
+    --gradient-retailer: linear-gradient(135deg, hsl(151 83% 54% / 0.1), hsl(189 94% 62% / 0.1));
+    --gradient-stats: linear-gradient(135deg, hsl(14 86% 65% / 0.1), hsl(45 93% 65% / 0.1));
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -185,6 +200,14 @@
     @apply bg-gradient-card shadow-lg border border-border/50;
   }
 
+  .card-retailer {
+    @apply bg-gradient-retailer shadow-lg border border-border/50;
+  }
+
+  .card-stats {
+    @apply bg-gradient-stats shadow-lg border border-border/50;
+  }
+
   .glass-effect {
     @apply bg-white/10 backdrop-blur-sm border border-white/20;
   }
@@ -193,10 +216,26 @@
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
 
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow hover:scale-105;
+  }
+
   .fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
     transform: translateY(20px);
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateX(30px);
   }
 
   .status-badge-pending {
@@ -210,11 +249,46 @@
   .status-badge-cancelled {
     @apply bg-destructive/10 text-destructive border-destructive/20;
   }
+
+  .status-badge-processing {
+    @apply bg-info-light text-info-foreground border-info/20;
+  }
+
+  .low-stock-item {
+    @apply p-3 rounded-lg bg-warning/5 border-l-4 border-warning hover:bg-warning/10 transition-colors;
+  }
+
+  .chart-container {
+    @apply bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg border border-primary/10;
+  }
 }
 
 @keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
   }
 }
