@@ -39,7 +39,7 @@ const Dashboard = () => {
       {/* Welcome Section */}
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 p-6 rounded-2xl bg-gradient-hero text-white">
         <div className="slide-in-left">
-          <h1 className="text-4xl font-bold mb-2 text-white">Welcome back, John!</h1>
+          <h1 className="text-4xl font-bold mb-2 text-white">Welcome back, Karan!</h1>
           <p className="text-white/90 text-lg">
             Here's an overview of your retail business performance.
           </p>

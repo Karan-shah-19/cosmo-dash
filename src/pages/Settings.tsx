@@ -81,19 +81,19 @@ const Settings = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name</Label>
-                  <Input id="firstName" defaultValue="John" />
+                  <Input id="firstName" defaultValue="Karan" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="lastName">Last Name</Label>
-                  <Input id="lastName" defaultValue="Doe" />
+                  <Input id="lastName" defaultValue="Shah" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" defaultValue="john.doe@retailpro.com" />
+                  <Input id="email" type="email" defaultValue="shahkaran809@gmail.com" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone</Label>
-                  <Input id="phone" type="tel" defaultValue="+1 (555) 123-4567" />
+                  <Input id="phone" type="tel" defaultValue="+91 9265197138" />
                 </div>
               </div>
 
